@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "5b976444-b053-4e2c-82b6-1e9da1d04da8",
+		"name": "PPMTOOL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "Delete from project",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:8080/api/project/PID1"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "All ",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/project/all"
+							},
+							"response": []
+						},
+						{
+							"name": "get One",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8080/api/project/PID1"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Post Create new Project",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n    \"projectName\": \"Project1 \",\r\n    \"projectIdentifier\": \"PID1\",\r\n    \"description\": \"Project description is required\"\r\n}\r\n  ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/project"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Backlog",
+			"item": [
+				{
+					"name": "Create ProjectTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"summary\":\"new summery\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/backlog/PID1"
+					},
+					"response": []
+				},
+				{
+					"name": " GET ALL ProjectTask By PID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzUxMiJ9.eyJmdWxsTmFtZSI6InRlc3QxIiwiaWQiOiIxIiwiZXhwIjoxNTk4Njk4MjkwLCJpYXQiOjE1OTg2OTc5OTAsInVzZXJuYW1lIjoidGVzdDFAZ21haWwuY29tIn0.Hu5kbRuFCMfimB02Tc7WaLc53BZ8_L1ZklfbCK6YT_e-oBjbi7xEz7ykSbiaH_HPfsHZ6VAs-FQVqtvLLnRfvA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/backlog/PID1"
+					},
+					"response": []
+				},
+				{
+					"name": "GET ProjectTask By PID and ProjSEQ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/backlog/PID1/PID1-8"
+					},
+					"response": []
+				},
+				{
+					"name": "Update ProjectTask By PID and ProjSEQ",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 14,\r\n        \"projectSequence\": \"PID1-8\",\r\n        \"summary\": \"new summery updated\",\r\n        \"acceptanceCriteria\": null,\r\n        \"status\": \"TO_DO\",\r\n        \"priority\": 1,\r\n        \"dueDate\": null,\r\n        \"projectIdentifier\": \"PID1\",\r\n        \"create_At\": \"2020-08-28T07:31:03.450+0000\",\r\n        \"update_At\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/backlog/PID1/PID1-2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ProjectTask By PID and ProjSEQ",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/backlog/PID1/PID1-1"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "JWT",
+			"item": [
+				{
+					"name": "Register-User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test1@gmail.com\",\r\n    \"fullName\": \"test1\",\r\n    \"password\": \"test11\",\r\n    \"confirmPassword\":\"test11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/users/register"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login User ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJmdWxsTmFtZSI6InRlc3QxIiwiaWQiOiIxIiwiZXhwIjoxNTk4NjkwMDIyLCJpYXQiOjE1OTg2ODk3MjIsInVzZXJuYW1lIjoidGVzdDFAZ21haWwuY29tIn0.pTCRYpnOcSVG57OQoZp0xJ0fEFfVgQFmvvPiVe_zBXn2auVwDC21aMexLeY_bLsSf0L9Q7LKeEsfO2BqoaaalQ"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test1@gmail.com\",\r\n    \"password\": \"test11\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/users/login"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
